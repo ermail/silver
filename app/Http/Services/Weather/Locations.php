@@ -12,6 +12,7 @@ class Locations
         $yamlContents = Yaml::parse(
             Storage::disk('local')->get('public/parameters.yaml')
         );
+
         return $yamlContents['locations'];
     }
 
@@ -20,10 +21,8 @@ class Locations
             '&appid='. config('weather.api_key') .
             '&lang=' .  config('weather.api_language.deutsch') .
             '&units=' .  config('weather.api_units.metric');
-      //  dd($url);
         $result = (new Client())->get($url)->getBody()->getContents();
         $weather = json_decode($result, true);
-      //  dd($weather['main']['temp']);
         return round($weather['main']['temp'], 1);
     }
 }

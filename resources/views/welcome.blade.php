@@ -56,13 +56,10 @@
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                                     @foreach ($locations as $location)
-                                        {{$location}} - {{\App\Http\Services\Weather\Locations::getWeatherForLocation($location)}} C°<br>
+                                        {{$location}} : {{\App\Http\Services\Weather\Locations::getWeatherForLocation($location)}} C°<br>
 
 
                                     @endforeach
-                                   {{--{{$weather['name']}}<br>
-                                   Temperatur:  min {{round($weather['main']['temp_min'], 1)}} C°  max {{round($weather['main']['temp_max'], 1)}} C° <br>
-                                    {{$weather['weather']['0']['description']}}<br>--}}
                                 </div>
                             </div>
                         </div>
